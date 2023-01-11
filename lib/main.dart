@@ -1,6 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat/firebase_options.dart';
+import 'package:flutter_chat/routes/pages.dart';
+import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -10,16 +16,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Scaffold(
-          body: Center(
-              child: Container(
-            child: Text("Proje başlangıcı"),
-          )),
-        ));
+    return GetMaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+      // home: Scaffold(
+      //   body: Center(
+      //       child: Container(
+      //     child: Text("Proje başlangıcı"),
+      //   )),
+      // )
+    );
   }
 }
