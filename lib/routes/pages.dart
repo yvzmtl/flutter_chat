@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat/routes/names.dart';
 import 'package:get/get.dart';
 
+import '../pages/sign_in/index.dart';
 import '../pages/welcome/index.dart';
 
 class AppPages {
@@ -19,6 +20,11 @@ class AppPages {
       // middlewares: [
       //   RouteWelcomeMiddleware(priority: 1),
       // ],
+    ),
+    GetPage(
+      name: AppRoutes.SIGN_IN,
+      page: () => SignInPage(),
+      binding: SignInBinding(),
     ),
   ];
 }

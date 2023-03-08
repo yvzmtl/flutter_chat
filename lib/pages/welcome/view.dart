@@ -1,7 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat/pages/welcome/controller.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class WelcomePage extends GetView<WelcomeController> {
@@ -12,8 +11,10 @@ class WelcomePage extends GetView<WelcomeController> {
     return Scaffold(
         body: Obx(
       (() => SizedBox(
-            width: 360.w,
-            height: 780.w,
+            width: double.infinity,
+            //width: 360.w,
+            //height: 780.w,
+            height: double.infinity,
             child: Stack(
               alignment: Alignment.bottomCenter,
               children: [
@@ -65,7 +66,9 @@ class WelcomePage extends GetView<WelcomeController> {
                           Positioned(
                             bottom: 90,
                             child: ElevatedButton(
-                              onPressed: (() {}),
+                              onPressed: () {
+                                controller.handleSignIn();
+                              },
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(Colors.white),
